@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychic Game</title>
+    
+    </head>
+    
+    <body>
+    <h1>The Pyschic Game</h1>
+        
+        <p>Guess what letter I'm thinking of</p>
+        
+        <p>wins:</p>
+        
+        <p>Losses:</p>
+        
+        <p> Guesses Left:</p>
+        
+        <p>Your Guesses so Far:</p>
+        
+        
+    
+    
+    </body>
+    
+    <script type="text/javascript">
+    
+    var game = ["a", "c", "e", "g", "i", "k", "m", "o"]
+    
+    var wins= 0;
+    var losses= 0;
+    var guessesLeft= 10;
+    var guesses= " ";
+    var userGuess;
+    
+   var randomItem = game[Math.floor(Math.random() * game.length)];
+   console.log (randomItem);
+     
+   document.onkeyup = function (event) {    
+           userGuess = event.key
+           console.log(userGuess) 
+       
+          if (userGuess == randomItem) {
+     wins++
+     console.log("Wins: " + wins)
+        }
+    else{
+        
+        
+            guessesLeft--;
+        console.log("guesses left "+ guessesLeft)
+        
+            if(guessesLeft < 1){
+            losses++;
+                console.log("Losses: " + losses);
+        }
+        
+    
+    }
+       
+   }
+   
+
+//   function checkMatch(){
+//       randomItem
+//   }          
+   
+    
+    
+    
+    </script>
+
+
+
+</html>

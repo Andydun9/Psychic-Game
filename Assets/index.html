@@ -10,20 +10,20 @@
         
         <p>Guess what letter I'm thinking of</p>
         
-        <p>wins:</p>
+        <p id="win">wins:<span id="winss"></span></p>
         
-        <p>Losses:</p>
+        <p id="loss">Losses:<span id=lose></span></p>
         
-        <p> Guesses Left:</p>
+        <p id="left"> Guesses Left: <span id="guess-left"> </span></p>
+        <p>Your Guesses so Far:<span id="guess-so-far"></span></p>
         
-        <p>Your Guesses so Far:</p>
-        
-        
+        <input type="button" onclick="restart()" value="Reset game"></button>
     
     
     </body>
     
     <script type="text/javascript">
+    
     
     var game = ["a", "c", "e", "g", "i", "k", "m", "o"]
     
@@ -31,35 +31,60 @@
     var losses= 0;
     var guessesLeft= 10;
     var guesses= " ";
-    var userGuess;
+    var userGuess = [];
+    var guessList=[]
     
+    
+    
+   
    var randomItem = game[Math.floor(Math.random() * game.length)];
    console.log (randomItem);
+
+
+
+     document.onkeyup = function (event) {    
+           userGuess = event.key; console.log(userGuess)
+           guessList.push(userGuess); 
+           document.getElementById("guess-so-far").innerHTML= guessList;
      
-   document.onkeyup = function (event) {    
-           userGuess = event.key
-           console.log(userGuess) 
-       
+    
           if (userGuess == randomItem) {
      wins++
-     console.log("Wins: " + wins)
+     document.getElementById("winss").innerHTML=wins;
+    
         }
     else{
         
-        
             guessesLeft--;
-        console.log("guesses left "+ guessesLeft)
-        
-            if(guessesLeft < 1){
-            losses++;
-                console.log("Losses: " + losses);
-        }
-        
-    
+        document.getElementById("guess-left").innerHTML= guessesLeft;
+
+         if(guessesLeft ===0){
+    alert("You loose!")
     }
+    if(guessesLeft < 1){
+            losses++;
+                document.getElementById("lose").innerHTML=losses;
+               
+        }
        
-   }
+}
+     }
+function restart() {
+    location.reload();
+}
+    //  if(guessesLeft==0){
+    //      randomItem;
+     
+
+
+
+
    
+    
+
+     
+  
+    
 
 //   function checkMatch(){
 //       randomItem

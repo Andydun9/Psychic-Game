@@ -2,26 +2,38 @@
 <html>
 <head>
     <title>Psychic Game</title>
-    <link href="CSS/reset.css" type="stylesheet">
-    <link href="CSS/style.css" type="stylesheet">
+    <link href="CSS/reset.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Signika|Vidaloka|Work+Sans:400,700" rel="stylesheet">
     </head>
     
-    <body>
+    <header>
     <h1>The Pyschic Game</h1>
-        
-        <p>Guess what letter I'm thinking of</p>
-        
-        <p id="win">wins:<span id="winss"></span></p>
-        
-        <p id="loss">Losses:<span id=lose></span></p>
-        
-        <p id="left"> Guesses Left: <span id="guess-left"> </span></p>
-        <p>Your Guesses so Far:<span id="guess-so-far"></span></p>
-        
-        <input type="button" onclick="restart()" value="Reset game"></button>
+    </header>
     
+    <body>
+        <div class="content-wrapper">
+        <h2>Guess what letter I'm thinking of?</h2>
+        <br>
+        <p id="win">Wins:<span id="winss"></span></p>
+        <br>
+        <p id="loss">Losses:<span id=lose></span></p>
+        <br>
+        <p id="left"> Guesses Left: <span id="guess-left"> </span></p>
+            <br>
+        <p>Your Guesses so Far:<span id="guess-so-far"></span></p>
+        <br>
+        <input type="button" onclick="restart()" value="Reset game" class="button">
+        
+        </div>
     
     </body>
+    
+    <footer>
+     
+        <p>&copy; 2018</p>
+    
+    </footer>
     
     <script src="JavaScript/game.js">
     
@@ -29,6 +41,6 @@
     
     </script>
 
-
+    
 
 </html>

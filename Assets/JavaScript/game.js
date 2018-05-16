@@ -7,57 +7,55 @@ var guesses = " ";
 var userGuess = [];
 var guessList = []
 var games = []
-
+var randomItem = game[Math.floor(Math.random() * game.length)];
 
 
 //Chooses random letter
 
-var randomItem = game[Math.floor(Math.random() * game.length)];
-console.log(randomItem);
-
+function reset() {
+    randomItem = game[Math.floor(Math.random() * game.length)];
+    console.log(randomItem);
+}
 //pushes random letter to guesses so far
 document.onkeyup = function (event) {
-    userGuess = event.key; console.log(userGuess)
+    userGuess = event.key;
     guessList.push(userGuess);
-    document.getElementById("guess-so-far").innerHTML = guessList;
+    document.getElementById("guess-so-far").innerHTML = guessList; console.log("computer:", randomItem)
 
     //win coding
+
     if (userGuess == randomItem) {
         wins++
         alert("You win!!!!");
         guessList.length = 0;
         guessesLeft = 10;
-
         document.getElementById("winss").innerHTML = wins;
-
-
+        randomItem = "";
+        reset();
     }
     else {
         //loss coding
         guessesLeft--;
         document.getElementById("guess-left").innerHTML = guessesLeft;
-
         if (guessesLeft === 0) {
             alert("You loose!");
         }
         if (guessesLeft < 1) {
-
             losses++;
             guessList.length = 0;
             guessesLeft = 10;
-
             document.getElementById("lose").innerHTML = losses;
-
+            reset();
         }
 
 
     }
+
 }
 
-// onkeydown.call= games
-// if(guessesLeft===0){
-// games.call
-// };
+
+
+
 
 function restart() {
     location.reload();
